@@ -395,9 +395,11 @@ class COCOeval:
                         # use python array gets significant speed improvement
                         pr = pr.tolist(); q = q.tolist()
 
-                        for i in range(nd-1, 0, -1):
-                            if pr[i] > pr[i-1]:
-                                pr[i-1] = pr[i]
+                        #To get a zig-zag PR curve - comment the loop below
+
+                        #for i in range(nd-1, 0, -1):
+                        #    if pr[i] > pr[i-1]:
+                        #        pr[i-1] = pr[i]
 
                         inds = np.searchsorted(rc, p.recThrs, side='left')
                         try:
